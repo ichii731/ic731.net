@@ -1,4 +1,4 @@
-ichii115.github.io
+https://ichii115.github.io
 GitHub Pagesで公開
 
 〈仕様〉
