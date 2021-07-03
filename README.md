@@ -1,4 +1,4 @@
-[tomox0115.github.io](https://tomox0115.github.io)
+ichii115.github.io
 GitHub Pagesで公開
 
 〈仕様〉
