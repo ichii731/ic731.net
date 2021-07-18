@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>PORTFOLIO</title>
+    <!-- Link Swiper's CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<!-- styles -->
+<style>
+    html {
+        background-color: #f4fff4;
+    }
+    
+    @media (min-width: 640px) {
+        #mobile-header {
+            display: none;
+        }
+        #top-img {
+            height: 85px;
+            width: auto;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        #top-img {
+            max-width: 80%;
+        }
+        #pc-header {
+            display: none;
+        }
+        input {
+            position: fixed;
+            opacity: 0;
+        }
+        input:focus+label .burger {
+            opacity: 0.75;
+        }
+        label {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+        }
+        label::before {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(10, 38, 57, 0.75);
+            content: '';
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        label .burger {
+            position: fixed;
+            top: 1.2em;
+            right: 1em;
+            z-index: 3;
+            width: 1.4em;
+            height: 1.4em;
+            margin: 0;
+            padding: 0;
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        label .burger::before {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            top: 0;
+            transform-origin: top left;
+        }
+        label .burger .bar {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            top: 44%;
+        }
+        label .burger::after {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            bottom: 0;
+            transform-origin: bottom left;
+        }
+        label:hover .burger {
+            opacity: 0.75;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            transform: translate3d(0, 0, 0);
+            transform: translateX(-100%);
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            width: 25em;
+            background: #006400;
+            content: '';
+            transform: skewX(15deg) translateX(-100%);
+            transform-origin: bottom left;
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav a {
+            margin: 0.5em 0;
+            padding: 0.2em 2em;
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transform: translateX(-100%);
+            transition: color 0.15s, transform 0.5s;
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav a:nth-child(1) {
+            transition-delay: 0s, 100ms;
+        }
+        nav a:nth-child(2) {
+            transition-delay: 0s, 150ms;
+        }
+        nav a:nth-child(3) {
+            transition-delay: 0s, 200ms;
+        }
+        nav a:nth-child(4) {
+            transition-delay: 0s, 250ms;
+        }
+        nav a:nth-child(5) {
+            transition-delay: 0s, 300ms;
+        }
+        nav a:nth-child(6) {
+            transition-delay: 0s, 350ms;
+        }
+        nav a:hover {
+            color: black;
+        }
+        nav a:focus {
+            color: black;
+        }
+        [id="navcheck"]:checked+label::before {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        [id="navcheck"]:checked+label .burger::before {
+            width: 141.42%;
+            transform: rotate(45deg) translateY(-50%);
+        }
+        [id="navcheck"]:checked+label .burger::after {
+            width: 141.42%;
+            transform: rotate(-45deg) translateY(50%);
+        }
+        [id="navcheck"]:checked+label .burger .bar {
+            transform: scale(0.1);
+        }
+        [id="navcheck"]:checked~nav {
+            transform: translateX(0);
+        }
+        [id="navcheck"]:checked~nav::before {
+            transform: skewX(15deg) translateX(0);
+        }
+        [id="navcheck"]:checked~nav a {
+            transform: translateX(0);
+        }
+        [id="navcheck"]:checked~main .content {
+            transform: translateX(3em);
+            transform-origin: left center;
+            filter: blur(2px);
+        }
+        .visuallyhidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        nav::before {
+            width: 25em;
+        }
+    }
+    
+    @media (max-width: 640px) and (min-width: 400px) {
+        #top-img {
+            height: 85px;
+            width: auto;
+        }
+        #pc-header {
+            display: none;
+        }
+        input {
+            position: fixed;
+            opacity: 0;
+        }
+        input:focus+label .burger {
+            opacity: 0.75;
+        }
+        label {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+        }
+        label::before {
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 82, 136, 0.75);
+            content: '';
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        label .burger {
+            position: fixed;
+            top: 40px;
+            right: 1em;
+            z-index: 3;
+            width: 1.4em;
+            height: 1.4em;
+            margin: 0;
+            padding: 0;
+            transition: opacity 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        label .burger::before {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            top: 0;
+            transform-origin: top left;
+        }
+        label .burger .bar {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            top: 44%;
+        }
+        label .burger::after {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 12%;
+            background: black;
+            content: '';
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            bottom: 0;
+            transform-origin: bottom left;
+        }
+        label:hover .burger {
+            opacity: 0.75;
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 2;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            transform: translate3d(0, 0, 0);
+            transform: translateX(-100%);
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            width: 25em;
+            background: #006400;
+            content: '';
+            transform: skewX(15deg) translateX(-100%);
+            transform-origin: bottom left;
+            will-change: transform;
+            transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav a {
+            margin: 0.5em 0;
+            padding: 0.2em 2em;
+            font-size: 1.5em;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transform: translateX(-100%);
+            transition: color 0.15s, transform 0.5s;
+            transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        nav a:nth-child(1) {
+            transition-delay: 0s, 100ms;
+        }
+        nav a:nth-child(2) {
+            transition-delay: 0s, 150ms;
+        }
+        nav a:nth-child(3) {
+            transition-delay: 0s, 200ms;
+        }
+        nav a:nth-child(4) {
+            transition-delay: 0s, 250ms;
+        }
+        nav a:nth-child(5) {
+            transition-delay: 0s, 300ms;
+        }
+        nav a:nth-child(6) {
+            transition-delay: 0s, 350ms;
+        }
+        nav a:hover {
+            color: black;
+        }
+        nav a:focus {
+            color: black;
+        }
+        [id="navcheck"]:checked+label::before {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        [id="navcheck"]:checked+label .burger::before {
+            width: 141.42%;
+            transform: rotate(45deg) translateY(-50%);
+        }
+        [id="navcheck"]:checked+label .burger::after {
+            width: 141.42%;
+            transform: rotate(-45deg) translateY(50%);
+        }
+        [id="navcheck"]:checked+label .burger .bar {
+            transform: scale(0.1);
+        }
+        [id="navcheck"]:checked~nav {
+            transform: translateX(0);
+        }
+        [id="navcheck"]:checked~nav::before {
+            transform: skewX(15deg) translateX(0);
+        }
+        [id="navcheck"]:checked~nav a {
+            transform: translateX(0);
+        }
+        [id="navcheck"]:checked~main .content {
+            transform: translateX(3em);
+            transform-origin: left center;
+            filter: blur(2px);
+        }
+        .visuallyhidden {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        nav::before {
+            width: 25em;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <header id="pc-header" class="text-gray-600 body-font  shadow-lg">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img id="top-img" alt="市井研究所" src="./ic731.png">
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-gray-900">Project / Service</a>
+                <a class="mr-5 hover:text-gray-900">SNS / MEDIA</a>
+                <a class="mr-5 hover:text-gray-900">Detail Profile</a>
+                <a class="mr-5 hover:text-gray-900">History</a>
+            </nav>
+            <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">CONTACT
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+
+    </header>
+
+
+    <header id="mobile-header" class="h-24 sm:h-32 flex items-center  shadow-lg">
+        <div class="container mx-auto px-6 sm:px-12 flex items-center justify-between">
+            <div class="font-black text-blue-900 text-2xl flex items-start">
+                Company<span class="w-3 h-3 rounded-full bg-purple-600 ml-2"></span>
+            </div>
+            <div class="flex items-center">
+                <nav class="text-purple-900 text-lg hidden lg:flex items-center">
+                    <a href="#" class="py-2 px-8 flex hover:text-purple-700">
+                        Home
+                    </a>
+                    <a href="#" class="py-2 px-8 flex hover:text-purple-700">
+                        Service
+                    </a>
+                    <a href="#" class="py-2 px-8 flex hover:text-purple-700">
+                        Portfolio
+                    </a>
+                    <a href="#" class="py-2 px-8 flex hover:text-purple-700">
+                        Contact us
+                    </a>
+                </nav>
+                <div class="flex flex-col ml-4">
+                    <input type="checkbox" id="navcheck" role="button" title="menu">
+                    <label for="navcheck" aria-hidden="true" title="menu">
+                        <span class="burger">
+                            <span class="bar">
+                                <span class="visuallyhidden">Menu</span>
+                            </span>
+                        </span>
+                    </label>
+                    <nav id="menu">
+                        <a href="#"></a>
+                        <a href="#">Project / Service</a>
+                        <a href="#">SNS / MEDIA</a>
+                        <a href="#">Detail Profile</a>
+                        <a href="#">History</a>
+                        <a href="#">CONTACT</a>
+                        <div style="bottom: 0; padding-left: 50px; padding-top: 50px; color: white;">©2021 市井研究所 by 市井P(@ichii731)
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="py-20" style="background-image: url(background.jpg);background-position:center top;                     /* 画像の表示位置を指定 */
+        background-size:cover;                                 /* 画像のサイズを指定  */
+        width:100%;                                            /* 横幅のサイズを指定  */
+   ">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold mb-2 text-white">
+                    オタク×ITで世界を拓く
+                </h2>
+                <h3 class="text-2xl mb-8 text-gray-200">
+                    オタク系コンテンツとIT技術の融合には無限の可能性を秘めており,<br>「市井研究所」では世の中のちょっと役に立つような面白いコンテンツを創造し続けます.
+                </h3>
+                <button class="bg-white font-bold rounded-full py-4 px-8 shadow-lg uppercase tracking-wider">
+                Pre Order
+              </button>
+            </div>
+        </div>
+
+        <section class="text-gray-600 body-font">
+            <div class="container px-5 py-24 mx-auto flex flex-wrap">
+                <div class="flex flex-wrap w-full">
+                    <div class="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                        <div class="flex relative pb-12">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1</h2>
+                                <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
+                            </div>
+                        </div>
+                        <div class="flex relative pb-12">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 2</h2>
+                                <p class="leading-relaxed">Vice migas literally kitsch +1 pok pok. Truffaut hot chicken slow-carb health goth, vape typewriter.</p>
+                            </div>
+                        </div>
+                        <div class="flex relative pb-12">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="5" r="3"></circle>
+                                    <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 3</h2>
+                                <p class="leading-relaxed">Coloring book nar whal glossier master cleanse umami. Salvia +1 master cleanse blog taiyaki.</p>
+                            </div>
+                        </div>
+                        <div class="flex relative pb-12">
+
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 4</h2>
+                                <p class="leading-relaxed">VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo offal.</p>
+                            </div>
+                        </div>
+                        <div class="flex relative">
+                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 inline-flex items-center justify-center text-white relative z-10">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path>
+                                    <path d="M22 4L12 14.01l-3-3"></path>
+                                </svg>
+                            </div>
+                            <div class="flex-grow pl-4">
+                                <h2 class="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">FINISH</h2>
+                                <p class="leading-relaxed">Pitchfork ugh tattooed scenester echo park gastropub whatever cold-pressed retro.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step">
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-green-500 rounded-full" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl">市井研究所</span>
+            </a>
+            <p class="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 市井研究所 — by<a href="https://twitter.com/ichii731" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@ichii731</a>
+                <br><br><a class="text-sm text-gray-500">Terms of Service</a> / <a class="text-sm text-gray-500">CONTACT</a>
+                <br>※当サイト内コンテンツの無断転載を禁じます.<br>This Page is Hosted on <a href="">GitHub</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a class="text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        class="w-5 h-5" viewBox="0 0 24 24">
+                        <path
+                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                    </svg>
+                </a>
+                <a class="ml-3 text-gray-500">
+                    <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                        <path stroke="none"
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                        </path>
+                        <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                    </svg>
+                </a>
+            </span>
+        </div>
+
+    </footer>
+</body>
+
+</html>
