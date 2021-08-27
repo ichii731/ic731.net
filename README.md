@@ -1,9 +1,9 @@
-[UPDATE]独自ドメインに移行しました
 ## https://ic731.net
-GitHub Pagesで公開
+### Change Log
+**8.27 サイトリニューアルしました！**
+**7.10 独自ドメインに移行しました**
 
-**現在デザイン変更のため準備中**
-
-〈仕様〉
-HTML/JS/CSS
-Based on MaterialDesignBootstrap
+### 仕様
+Lang: HTML/JS/CSS
+CSS Framework: Tailwind CSS
+Hosted on GitHub Pages
