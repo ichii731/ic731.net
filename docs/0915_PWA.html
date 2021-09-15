@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- @author:ichii731 -->
+    <!-- © 2021 市井研究所 — by@ichii731 -->
+    <!-- ※当サイト内コンテンツの無断転載を禁じます. -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>IchiiLab(市井研究所) - @ichii731 Profile&Portfolio</title>
+    <link rel="icon" type="image/png" href="../imgs/icon.jpg">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="「5分でPWA+通知機能を実装してみよう」資料">
+    <meta name="description" content="2021/09/15にPWA Night 31にて発表させていただいた「5分でPWA+通知機能を実装してみよう」の資料を掲載しております.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ic731.net/docs/0915_PWA.html">
+    <meta property="og:title" content="「5分でPWA+通知機能を実装してみよう」資料">
+    <meta property="og:description" content="2021/09/15にPWA Night 31にて発表させていただいた「5分でPWA+通知機能を実装してみよう」の資料を掲載しております.">
+    <meta property="og:image" content="https://ic731.net/docs/0915_PWA/01.PNG">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ic731.net/0915_PWA.html">
+    <meta property="twitter:title" content="「5分でPWA+通知機能を実装してみよう」資料">
+    <meta property="twitter:description" content="2021/09/15にPWA Night 31にて発表させていただいた「5分でPWA+通知機能を実装してみよう」の資料を掲載しております.">
+    <meta property="twitter:image" content="https://ic731.net/docs/0915_PWA/01.PNG">
+
+    <!-- Tailwind CSS CDN-->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+
+
+
+</head>
+
+<body>
+    <header id="pc-header" class="text-gray-600 body-font  shadow-lg">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <img id="top-img" alt="市井研究所" src="../imgs/ic731.png">
+            </a>
+            <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+                <a href="../index.html#top" class="mr-5 hover:text-gray-900">Profile / News</a>
+                <a href="../index.html#works" class="mr-5 hover:text-gray-900">Work</a>
+                <a href="../index.html#media" class="mr-5 hover:text-gray-900">Media / SNS</a>
+                <a href="../index.html#profile" class="mr-5 hover:text-gray-900">Detail Profile</a>
+            </nav>
+            <a href="../contact.html">
+                <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">CONTACT
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                        stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button></a>
+        </div>
+
+    </header>
+
+
+    <header id="mobile-header" class="h-24 sm:h-32 flex items-center  shadow-lg">
+        <div class="container mx-auto px-6 sm:px-12 flex items-center justify-between">
+            <div class="font-black text-blue-900 text-2xl flex items-start">
+                <img id="top-img" alt="市井研究所" src="../imgs/ic731.png" style="margin: 20px;">
+            </div>
+            <div class="flex items-center">
+
+                <div class="flex flex-col ml-4">
+                    <input type="checkbox" id="navcheck" role="button" title="menu">
+                    <label for="navcheck" aria-hidden="true" title="menu">
+                        <span class="burger">
+                            <span class="bar">
+                                <span class="visuallyhidden">Menu</span>
+                            </span>
+                        </span>
+                    </label>
+                    <nav id="menu">
+                        <a href="../index.html#top">Profile / News</a>
+                        <a href="../index.html#works">Works</a>
+                        <a href="../index.html#media">Media / SNS</a>
+                        <a href="../index.html#profile">Detail Profile</a>
+                        <a href="../contact.html">CONTACT</a>
+                        <div style="bottom: 0; padding-left: 50px; padding-top: 50px; color: white;">©2021 市井P(@ichii731)
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="mx-auto container mb-2 py-8 flex flex-wrap">
+            <div class="flex flex-wrap px-0">
+                <h1 class="sm:text-3xl text-2xl font-medium px-2 title-font mb-2 text-gray-900">参考資料</h1>
+            </div>
+            <div class="flex flex-wrap px-0">
+                <p class="leading-relaxed px-2 mb-3"> 2021/09/15にPWA Night 31にて発表させていただいた資料を掲載しております.リンクはQRコードから飛べます.
+                    <br>
+                    <a href="0915_PWA/0915_PWA.pdf" class="font-extrabold text-blue-700">PDFファイルはこちら</a>
+                </p>
+            </div>
+
+
+            <div class="flex flex-wrap px-0">
+                <img src="0915_PWA/01.PNG" alt="参考資料01"><br>
+                <img src="0915_PWA/02.PNG" alt="参考資料02"><br>
+                <img src="0915_PWA/03.PNG" alt="参考資料03"><br>
+                <img src="0915_PWA/04.PNG" alt="参考資料04"><br>
+                <img src="0915_PWA/05.PNG" alt="参考資料05"><br>
+                <img src="0915_PWA/06.PNG" alt="参考資料06"><br>
+                <img src="0915_PWA/07.PNG" alt="参考資料07"><br>
+                <img src="0915_PWA/08.PNG" alt="参考資料08"><br>
+                <img src="0915_PWA/09.PNG" alt="参考資料09"><br>
+                <img src="0915_PWA/10.PNG" alt="参考資料10"><br>
+                <img src="0915_PWA/11.PNG" alt="参考資料11"><br>
+                <img src="0915_PWA/12.PNG" alt="参考資料12"><br>
+                <img src="0915_PWA/13.PNG" alt="参考資料13"><br>
+                <img src="0915_PWA/14.PNG" alt="参考資料14"><br>
+                <img src="0915_PWA/15.PNG" alt="参考資料15"><br>
+                <img src="0915_PWA/16.PNG" alt="参考資料16"><br>
+                <img src="0915_PWA/17.PNG" alt="参考資料17"><br>
+                <img src="0915_PWA/18.PNG" alt="参考資料18"><br>
+                <img src="0915_PWA/19.PNG" alt="参考資料19"><br>
+                <img src="0915_PWA/20.PNG" alt="参考資料20"><br>
+                <img src="0915_PWA/21.PNG" alt="参考資料21"><br>
+                <img src="0915_PWA/22.PNG" alt="参考資料22"><br>
+                <img src="0915_PWA/23.PNG" alt="参考資料23"><br>
+                <img src="0915_PWA/24.PNG" alt="参考資料24"><br>
+                <img src="0915_PWA/25.PNG" alt="参考資料25"><br>
+                <img src="0915_PWA/26.PNG" alt="参考資料26"><br>
+                <img src="0915_PWA/27.PNG" alt="参考資料27"><br>
+                <img src="0915_PWA/28.PNG" alt="参考資料28"><br>
+                <img src="0915_PWA/29.PNG" alt="参考資料29"><br>
+                <img src="0915_PWA/30.PNG" alt="参考資料30"><br>
+                <img src="0915_PWA/31.PNG" alt="参考資料31"><br>
+                <img src="0915_PWA/32.PNG" alt="参考資料32"><br>
+                <img src="0915_PWA/33.PNG" alt="参考資料33"><br>
+                <img src="0915_PWA/34.PNG" alt="参考資料34"><br>
+                <img src="0915_PWA/35.PNG" alt="参考資料35"><br>
+                <img src="0915_PWA/36.PNG" alt="参考資料36"><br>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <div class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                <img src="../imgs/icon.jpg" style="border-radius: 100%; width: 50px; height: 50px;" />
+                <span class="ml-3 text-xl">Ichii Lab</span>
+            </div>
+            <p class="text-sm sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2021 市井研究所 — by<a href="https://twitter.com/ichii731" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@ichii731</a>
+                <br>
+                <br>※当サイト内コンテンツの無断転載を禁じます.
+                <br><a href="../contact.html" class="text-sm text-gray-500">CONTACT</a> / This Page is Hosted on <a target="_blank" rel="noopener" href="https://github.com/ichii731/ichii731.github.io">GitHub</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+                <a href="https://twitter.com/ichii731" target="_blank" rel="noopener"><i
+                        class="p-3 text-base fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/ichii731" target="_blank" rel="noopener"><i
+                        class="p-3 text-base fab fa-instagram"></i></a>
+                <a href="https://github.com/ichii731" target="_blank" rel="noopener"><i
+                        class="p-3 text-base fab fa-github"></i></a>
+            </span>
+        </div>
+    </footer>
+
+    <a class="WebShare" style="position:fixed; bottom: 40px; right: 20px; "><i class="fas fa-share-alt"
+            aria-hidden="true"></i></a>
+    <script>
+        // Web Share API v1
+        document.querySelector('.WebShare').addEventListener('click', function() {
+            if (navigator.share) {
+                navigator.share({
+                        title: '「5分でPWA+通知機能を実装してみよう」資料',
+                        text: 'PWA Night 31にて発表させていただいた「5分でPWA+通知機能を実装してみよう」の資料を掲載しております. #pwanight',
+                        url: 'https://ic731.net/docs/0915_PWA.html'
+                    })
+                    .then(() => console.log('Share complete'))
+                    .error((error) => console.error('Could not share', error))
+            }
+        });
+        // Hamburger Menu Event
+        const toggler = document.querySelector('.menu__toggler');
+        const menu = document.querySelector('.menu');
+
+        toggler.addEventListener('click', () => {
+            toggler.classList.toggle('active');
+            menu.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
