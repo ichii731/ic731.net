@@ -127,7 +127,7 @@ export default {
       show: false,
       contents: [
         { to: '/', title: 'Home' },
-        { to: '/news/', title: 'About' },
+        { to: '/news/', title: 'News' },
         { to: '/services/', title: 'Services' },
         { to: '/contact/', title: 'Contact' }
       ],
