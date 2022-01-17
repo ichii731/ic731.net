@@ -1,18 +1,22 @@
+html {
+  scroll-behavior: smooth;
+}
+
 *:focus {
   outline: none;
 }
 /*
  https://zenn.dev/tanoken729/articles/6505fe7808e10e
 */
- .page-enter,
+.page-enter,
 .page-leave-to {
   opacity: 0;
 }
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }
 .layout-enter-active,
 .layout-leave-active {
-  transition: opacity 0.2s;
+  transition: opacity 0.4s;
 }

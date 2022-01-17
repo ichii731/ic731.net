@@ -11,7 +11,7 @@ nav
   .menu(:class="{ open: show }")
     ul
       li(v-for="content in contents")
-        nuxt-link(:to="content.to", v-on:click.native="to") {{content.title}}
+        nuxt-link(:to="content.to", v-on:click.native="to") {{ content.title }}
 </template>
 
 <style lang="scss" scoped>
@@ -20,7 +20,7 @@ nav
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 999;
   cursor: pointer;
   width: 50px;
   height: 50px;
@@ -31,11 +31,11 @@ nav
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 998;
   width: 60px;
   height: 60px;
   padding: 1rem;
-  background: rgba(0, 128, 128, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@ nav
 .hamburger > div::after {
   content: "";
   position: absolute;
-  z-index: 1;
+  z-index: 998;
   top: -10px;
   width: 100%;
   height: 2px;
@@ -101,6 +101,7 @@ nav
   align-items: center;
   flex: none;
   opacity: 0;
+  z-index: 997;
   &.open {
     visibility: visible;
     opacity: 1;
@@ -108,14 +109,19 @@ nav
   }
 }
 
-.menu > ul > li {
-  list-style: none;
-  color: #fff;
-  font-size: 1.5rem;
-  padding: 1rem;
-  a {
-    text-decoration: none;
-    color: #ffffff;
+.menu > ul {
+  margin-left: -40px;
+  text-align: center;
+  li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    a {
+      text-decoration: none;
+      color: #ffffff;
+    }
   }
 }
 </style>
@@ -126,10 +132,10 @@ export default {
     return {
       show: false,
       contents: [
-        { to: '/', title: 'Home' },
-        { to: '/news/', title: 'News' },
-        { to: '/services/', title: 'Services' },
-        { to: '/contact/', title: 'Contact' }
+        { to: "/", title: "Home" },
+        { to: "/news/", title: "News" },
+        { to: "/services/", title: "Services" },
+        { to: "/contact/", title: "Contact" },
       ],
     };
   },
