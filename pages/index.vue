@@ -3,9 +3,25 @@
   section#top
     TopAnimation
   section#home
+    .l-content
+      h1 ABOUT
+      p 自己紹介
+      a.btn.btn-border(href="#about") MORE
   section#about
+    .r-content
+      h1 WORKS
+      p 作品紹介
+      a.btn.btn-border(href="#about") MORE
   section#portfolio
+    .l-content
+      h1 Media/SNS
+      p 活動メディア
+      a.btn.btn-border(href="#about") MORE
   section#contact
+    .c-content
+      h1 CONTACT
+      p お問い合わせ
+      a.btn.btn-border(href="#about") MORE
 
   .scroll
     a.scroll(href="#home")
@@ -35,8 +51,43 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/scss/media_query.scss";
 * {
-  text-align: center;
+  //text-align: center;
 }
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 1.5em;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 2rem;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #212529;
+  border-radius: 0.5rem;
+}
+a.btn-border {
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+}
+
+a.btn-border:hover {
+  -webkit-box-shadow: -4px -4px 0 #000;
+  box-shadow: -4px -4px 0 #000;
+}
+
+/**
+ * スクロール矢印
+ */
 
 .scroll {
   position: absolute;
@@ -74,7 +125,6 @@ export default {
     transform: translateY(0) rotate(-45deg);
   }
 }
-
 section {
   background-attachment: fixed;
   background-position: center center;
@@ -92,21 +142,87 @@ section {
     right: 0;
     bottom: 0;
     left: 0;
+    height: 100vh;
     content: " ";
   }
   background-image: url("https://pbs.twimg.com/media/FJJv2_UaUAY2nbj?format=jpg&name=large");
 }
 
+section {
+  position: relative;
+  .l-content {
+    // div要素内で左下に文字配置
+    position: absolute;
+    left: 10vw;
+    bottom: 200px;
+  }
+  .r-content {
+    text-align: right;
+    // div要素内で右下に文字配置
+    position: absolute;
+    right: 10vw;
+    top: 200px;
+  }
+  .c-content {
+    // div要素内で中央に文字配置
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: #fff;
+  }
+  p {
+    font-size: 1.5em;
+    color: #fff;
+  }
+
+  a {
+    margin-top: 20px;
+  }
+}
+
 #home {
-  background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");
+  background-image: -webkit-linear-gradient(
+      30deg,
+      #013a6b 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");
 }
 #about {
-  background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711721/glass-909264_1920_kj77yx.jpg");
+  background-image: -webkit-linear-gradient(
+      30deg,
+      rgba(255, 255, 255, 0) 50%,
+      #4cbfff 50%
+    ),
+    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711721/glass-909264_1920_kj77yx.jpg");
 }
 #portfolio {
-  background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711717/building-922529_1920_icicwy.jpg");
+  background-image: -webkit-linear-gradient(
+      30deg,
+      #006421 50%,
+      rgba(255, 255, 255, 0) 50%
+    ),
+    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711717/building-922529_1920_icicwy.jpg");
 }
 #contact {
+  &:before {
+    /* 透過させた黒を重ねる */
+    background-color: rgba(75, 75, 75, 0.5);
+    /* どの範囲に重ねるかを指定 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    content: " ";
+  }
   background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711695/window-855371_1920_mkw8de.jpg");
 }
 
