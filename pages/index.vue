@@ -2,56 +2,90 @@
 .index
   section#top
     TopAnimation
-  section#home
+  .newslist(data-trigger)
+    h2 NEWS
+    ul
+      li(v-for="article in article", :key="article.slug")
+        nuxt-link(:to="'/news/' + article.slug")
+          p {{ article.title }}
+  section#home(data-trigger)
     .l-content
-      h1 ABOUT
+      h2 ABOUT
       p 自己紹介
       a.btn.btn-border(href="#about") MORE
-  section#about
+  section#about(data-trigger)
     .r-content
-      h1 WORKS
+      h2 WORKS
       p 作品紹介
       a.btn.btn-border(href="#about") MORE
-  section#portfolio
+  section#portfolio(data-trigger)
     .l-content
-      h1 Media/SNS
+      h2 Link/SNS
       p 活動メディア
       a.btn.btn-border(href="#about") MORE
-  section#contact
+  section#contact(data-trigger)
     .c-content
-      h1 CONTACT
+      h2 CONTACT
       p お問い合わせ
       a.btn.btn-border(href="#about") MORE
 
   .scroll
     a.scroll(href="#home")
       span
-  //.one
-    .buttom
-      p test
-  //.two
-    .buttom
-      p test
-  //.three
-  //.four
-  //.five
-  //.six
-  //.seven
 </template>
 
 <script>
 import TopAnimation from "~/components/TopAnimation.vue";
+//import ScrollTrigger from "@terwanerik/scrolltrigger";
+//const trigger = new ScrollTrigger();
+//trigger.add("[data-trigger]");
+
 export default {
   components: {
     TopAnimation,
+  },
+  async asyncData({ $content }) {
+    // 記事を全て取得（作成日で降順にソート）
+    const article = await $content("articles")
+      .limit(2)
+      .sortBy("createdAt", "desc")
+      .fetch();
+    return {
+      article,
+    };
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/scss/media_query.scss";
-* {
-  //text-align: center;
+
+.newslist {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  h2 {
+    text-align: center;
+  }
+}
+
+@include mq(ssm) {
+  .newslist {
+    font-size: 14px;
+    padding: 0 10px;
+  }
+}
+
+.newslist li {
+  padding: 15px 15px;
+  line-height: 1.5;
+  list-style: none;
+  margin-left: -40px;
+}
+
+.newslist li a {
+  color: rgb(47, 120, 255);
+  text-decoration: none;
 }
 
 .btn,
@@ -125,30 +159,12 @@ a.btn-border:hover {
     transform: translateY(0) rotate(-45deg);
   }
 }
+
 section {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
   height: 100vh;
-}
-
-#top {
-  &:before {
-    /* 透過させた黒を重ねる */
-    background-color: rgba(201, 201, 201, 0.8);
-    /* どの範囲に重ねるかを指定 */
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100vh;
-    content: " ";
-  }
-  background-image: url("https://pbs.twimg.com/media/FJJv2_UaUAY2nbj?format=jpg&name=large");
-}
-
-section {
   position: relative;
   .l-content {
     // div要素内で左下に文字配置
@@ -171,7 +187,7 @@ section {
     top: 50%;
     transform: translate(-50%, -50%);
   }
-  h1 {
+  h2 {
     font-size: 3em;
     font-weight: bold;
     color: #fff;
@@ -184,6 +200,22 @@ section {
   a {
     margin-top: 20px;
   }
+}
+
+#top {
+  &:before {
+    /* 透過させた黒を重ねる */
+    background-color: rgba(201, 201, 201, 0.8);
+    /* どの範囲に重ねるかを指定 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    content: " ";
+  }
+  background-image: url("https://0115765.com/wp-content/uploads/2021/09/%E7%94%BB%E5%83%8F_2021-09-19_203031.png");
 }
 
 #home {
@@ -248,54 +280,4 @@ section {
     width: 60%;
   }
 }
-
-/*
-.one {
-  background-color: #013a6b;
-  background-image: -webkit-linear-gradient(
-      30deg,
-      #013a6b 50%,
-      rgba(255, 255, 255, 0.5) 50%
-    ),
-    url("https://0115765.com/wp-content/uploads/2021/09/%E7%94%BB%E5%83%8F_2021-09-19_203031.png");
-  background-position: inherit;
-  min-height: 100vh;
-
-  .buttom {
-    p {
-      color: darkblue;
-      text-align: right;
-    }
-  }
-}
-.two {
-  background-color: #34adff;
-  background-image: -webkit-linear-gradient(150deg, #34adff 35%, #4cbfff 35%);
-  min-height: 100vh;
-}
-
-.three {
-  background-color: #efeeef;
-  min-height: 260px;
-}
-.four {
-  background-color: #e0e0e0;
-  min-height: 260px;
-}
-.five {
-  background-color: #efeeef;
-  min-height: 260px;
-}
-
-.six {
-  background-color: #34adff;
-  background-image: -webkit-linear-gradient(30deg, #34adff 45%, #4cbfff 45%);
-  min-height: 400px;
-}
-.seven {
-  background-color: #013a6b;
-  background-image: -webkit-linear-gradient(150deg, #013a6b 35%, #004e95 35%);
-  min-height: 200px;
-}
-*/
 </style>
