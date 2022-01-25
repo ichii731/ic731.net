@@ -6,7 +6,7 @@ export default {
   head: {
     title: 'ichii731',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'ja'
     },
     meta: [
       { charset: 'utf-8' },

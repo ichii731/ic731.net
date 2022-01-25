@@ -2,6 +2,12 @@
 .index
   section#top
     TopAnimation
+    .top-text
+      vue-typed-js(:strings="['”オタクコンテンツ”と”IT技術”のコラボレーションを通じて数多くの未来を創り出したい!<br>そういう思いで活動しています.']"
+      :type-speed="50"
+      :showCursor="false"
+      :startDelay="1000")
+        h3.typing
   .newslist(data-trigger)
     h2 NEWS
     ul
@@ -35,6 +41,10 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueTypedJs from 'vue-typed-js';
+Vue.use(VueTypedJs);
+
 import TopAnimation from "~/components/TopAnimation.vue";
 //import ScrollTrigger from "@terwanerik/scrolltrigger";
 //const trigger = new ScrollTrigger();
@@ -45,7 +55,6 @@ export default {
     TopAnimation,
   },
   async asyncData({ $content }) {
-    // 記事を全て取得（作成日で降順にソート）
     const article = await $content("articles")
       .limit(2)
       .sortBy("createdAt", "desc")
@@ -166,6 +175,16 @@ section {
   background-size: cover;
   height: 100vh;
   position: relative;
+  .top-text {
+    font-size: 1rem;
+    color: #000;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    max-width: 500px;
+  }
   .l-content {
     // div要素内で左下に文字配置
     position: absolute;
@@ -261,7 +280,7 @@ section {
 #top-anime {
   // center podition
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;

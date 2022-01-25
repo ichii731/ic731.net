@@ -16,6 +16,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@terwanerik/scrolltrigger": "^1.0.5",
     "core-js": "^3.19.3",
+    "ityped": "^1.0.3",
     "node-sass": "^5.0.0",
     "nuxt": "^2.15.8",
     "pug": "^2.0.4",
@@ -25,6 +26,7 @@
     "vue": "^2.6.14",
     "vue-server-renderer": "^2.6.14",
     "vue-template-compiler": "^2.6.14",
+    "vue-typed-js": "^0.1.2",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
