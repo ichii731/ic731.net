@@ -137,7 +137,7 @@ a.btn-border:hover {
   left: 0;
   right: 0;
   margin: auto;
-  bottom: 2em;
+  bottom: 1em;
   width: 3em;
   height: 3em;
   span {
