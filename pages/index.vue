@@ -33,7 +33,7 @@
     .c-content
       h2 CONTACT
       p お問い合わせ
-      a.btn.btn-border(href="#about") MORE
+      a.btn.btn-border(href="#about") SEND
 
   .scroll
     a.scroll(href="#home")
@@ -173,7 +173,6 @@ section {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  height: 100vh;
   position: relative;
   .top-text {
     font-size: 1rem;
@@ -188,15 +187,15 @@ section {
   .l-content {
     // div要素内で左下に文字配置
     position: absolute;
-    left: 10vw;
-    bottom: 200px;
+    left: 15vw;
+    bottom: 150px;
   }
   .r-content {
     text-align: right;
     // div要素内で右下に文字配置
     position: absolute;
-    right: 10vw;
-    top: 200px;
+    right: 15vw;
+    top: 150px;
   }
   .c-content {
     // div要素内で中央に文字配置
@@ -237,7 +236,11 @@ section {
   background-image: url("https://0115765.com/wp-content/uploads/2021/09/%E7%94%BB%E5%83%8F_2021-09-19_203031.png");
 }
 
+#top {
+  height: 100vh;
+}
 #home {
+  height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
       #013a6b 50%,
@@ -246,6 +249,7 @@ section {
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");
 }
 #about {
+  height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
       rgba(255, 255, 255, 0) 50%,
@@ -254,6 +258,7 @@ section {
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711721/glass-909264_1920_kj77yx.jpg");
 }
 #portfolio {
+  height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
       #006421 50%,
@@ -262,6 +267,7 @@ section {
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711717/building-922529_1920_icicwy.jpg");
 }
 #contact {
+  height: 70vh;
   &:before {
     /* 透過させた黒を重ねる */
     background-color: rgba(75, 75, 75, 0.5);
@@ -271,7 +277,7 @@ section {
     right: 0;
     bottom: 0;
     left: 0;
-    height: 100vh;
+    height: 70vh;
     content: " ";
   }
   background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711695/window-855371_1920_mkw8de.jpg");

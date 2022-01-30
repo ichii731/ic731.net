@@ -2,9 +2,15 @@ html {
   scroll-behavior: smooth;
 }
 
-*:focus {
-  outline: none;
+body {
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "BIZ UDPGothic",
+    sans-serif;
 }
+
 /*
  https://zenn.dev/tanoken729/articles/6505fe7808e10e
 */
