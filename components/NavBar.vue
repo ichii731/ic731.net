@@ -134,7 +134,8 @@ export default {
       contents: [
         { to: "/", title: "Home" },
         { to: "/news/", title: "News" },
-        { to: "/services/", title: "Services" },
+        { to: "/about/", title: "About" },
+        { to: "/works/", title: "Works" },
         { to: "/contact/", title: "Contact" },
       ],
     };
