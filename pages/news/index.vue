@@ -1,6 +1,7 @@
 <template lang="pug">
 .news-top
-  h1 NEWS Topics
+  TopHead(color="#000")
+    h1 NEWS
   .news-list
     ul
       li(v-for="article in article", :key="article.slug")
@@ -33,18 +34,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.news-top {
-  h1 {
-    text-align: center;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    // underline
-    border-bottom: 1px solid #ccc;
-    // 斜体
-    font-style: italic;
-
-  }
-  width: 80%;
+.news-list {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 90%;
   margin: 0 auto;
   max-width: 500px;
 }

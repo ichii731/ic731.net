@@ -1,27 +1,26 @@
 <template lang="pug">
 .head(:style="SetColor")
   .top
-    h1 {{ title }}
+    slot
 </template>
 
 <script>
 export default {
-  name: 'TopHead',
-  props: [
-    'title',
-    'color',
-  ],
+  name: "TopHead",
+  props: ["color"],
   computed: {
     SetColor() {
       return {
-        '--color': this.color,
+        "--color": this.color,
       };
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
+@import "~/assets/scss/media_query.scss";
+
 .head {
   position: relative;
   color: #fff;
@@ -32,6 +31,9 @@ export default {
     position: absolute;
     top: 50%;
     left: 30%;
+    @include mq(ssm) {
+      left: 40%;
+    }
     transform: translate(-50%, -50%);
     h1 {
       font-size: 3rem;

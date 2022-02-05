@@ -1,6 +1,7 @@
 <template lang="pug">
 .page
-  TopHead(title="NEWS", color="#000")
+  TopHead(color="#000")
+    h1 NEWS
   .news
     h2 {{ article.title }}
     p 更新日: {{ formatDate(article.createdAt) }}

@@ -3,56 +3,50 @@
   section#top
     TopAnimation
     .top-text
-      vue-typed-js(:strings="['”オタクコンテンツ”と”IT技術”のコラボレーションを通じて数多くの未来を創り出したい!<br>そういう思いで活動しています.']"
-      :type-speed="50"
-      :showCursor="false"
-      :startDelay="1000")
-        h3.typing
-  .newslist(data-trigger)
+      h3 オタクコンテンツ”と”IT技術”のコラボレーションを通じて数多くの未来を創り出したい!<br>そういう思いで活動しています.
+  .newslist
     h2 NEWS
     ul
       li(v-for="article in article", :key="article.slug")
         nuxt-link(:to="'/news/' + article.slug")
           p {{ article.title }}
-  section#home(data-trigger)
+  section#home
     .l-content
-      h2 ABOUT
+      FadeInAnimation
+        h2 ABOUT
       p 自己紹介
-      a.btn.btn-border(href="#about") MORE
-  section#about(data-trigger)
+      a.top-btn(href="#about") MORE
+  section#about
     .r-content
-      h2 WORKS
+      FadeInAnimation
+        h2 WORKS
       p 作品紹介
-      a.btn.btn-border(href="#about") MORE
-  section#portfolio(data-trigger)
+      a.top-btn(href="#about") MORE
+  section#portfolio
     .l-content
-      h2 Link/SNS
+      FadeInAnimation
+        h2 Link/SNS
       p 活動メディア
-      a.btn.btn-border(href="#about") MORE
-  section#contact(data-trigger)
+      a.top-btn(href="#about") MORE
+  section#contact
     .c-content
-      h2 CONTACT
+      FadeInAnimation
+        h2 CONTACT
       p お問い合わせ
-      a.btn.btn-border(href="#about") SEND
-
+      a.top-btn(href="#about") SEND
   .scroll
     a.scroll(href="#home")
       span
 </template>
 
 <script>
-import Vue from 'vue';
-import VueTypedJs from 'vue-typed-js';
-Vue.use(VueTypedJs);
-
 import TopAnimation from "~/components/TopAnimation.vue";
-//import ScrollTrigger from "@terwanerik/scrolltrigger";
-//const trigger = new ScrollTrigger();
-//trigger.add("[data-trigger]");
+import FadeInAnimation from "~/components/FadeInAnimation.vue";
 
 export default {
   components: {
     TopAnimation,
+    FadeInAnimation,
   },
   async asyncData({ $content }) {
     const article = await $content("articles")
@@ -68,7 +62,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/media_query.scss";
-
 .newslist {
   max-width: 500px;
   margin: auto;
@@ -97,9 +90,7 @@ export default {
   text-decoration: none;
 }
 
-.btn,
-a.btn,
-button.btn {
+.top-btn {
   font-size: 1.5em;
   font-weight: 700;
   line-height: 1.5;
@@ -114,8 +105,6 @@ button.btn {
   letter-spacing: 0.1em;
   color: #212529;
   border-radius: 0.5rem;
-}
-a.btn-border {
   border: 2px solid #000;
   border-radius: 0;
   background: #fff;
@@ -123,9 +112,11 @@ a.btn-border {
   box-shadow: 4px 4px 0 #000;
 }
 
-a.btn-border:hover {
-  -webkit-box-shadow: -4px -4px 0 #000;
-  box-shadow: -4px -4px 0 #000;
+.top-btn:hover {
+  -webkit-box-shadow: 4px 4px 0 #868686;
+  box-shadow: 4px 4px 0 #868686;
+  color: #fff;
+  background: #000;
 }
 
 /**

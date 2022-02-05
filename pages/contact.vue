@@ -1,6 +1,7 @@
 <template lang="pug">
 .page
-  TopHead(title="CONTACT", color="#65318e")
+  TopHead(color="#65318e")
+    h1 CONTACT
   .contact
     iframe(src="https://docs.google.com/forms/d/e/1FAIpQLSfPzOZ1iXekcknbV3Q4aUPG0KMrZOAUU8WJ0AUA8II_dhR0qQ/viewform?embedded=true",
     width="100%", height="1650", frameborder="0",
