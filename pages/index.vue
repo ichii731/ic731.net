@@ -3,39 +3,39 @@
   section#top
     TopAnimation
     .top-text
-      h3 オタクコンテンツ”と”IT技術”のコラボレーションを通じて数多くの未来を創り出したい!<br>そういう思いで活動しています.
+      h3 ”オタクコンテンツ”と”IT技術”のコラボレーションで生まれる無数の未来を創造します.
   .newslist
     h2 NEWS
     ul
       li(v-for="article in article", :key="article.slug")
         nuxt-link(:to="'/news/' + article.slug")
           p {{ article.title }}
-  section#home
+  section#about
     .l-content
       FadeInAnimation
         h2 ABOUT
       p 自己紹介
-      a.top-btn(href="#about") MORE
-  section#about
+      nuxt-link.top-btn(to="/about") MORE
+  section#works
     .r-content
       FadeInAnimation
         h2 WORKS
       p 作品紹介
-      a.top-btn(href="#about") MORE
-  section#portfolio
+      nuxt-link.top-btn(to="/works") MORE
+  section#media
     .l-content
       FadeInAnimation
         h2 Link/SNS
       p 活動メディア
-      a.top-btn(href="#about") MORE
+      nuxt-link.top-btn(to="/media") MORE
   section#contact
     .c-content
       FadeInAnimation
         h2 CONTACT
       p お問い合わせ
-      a.top-btn(href="#about") SEND
+      nuxt-link.top-btn(to="/contact") SEND
   .scroll
-    a.scroll(href="#home")
+    a.scroll(href="#about")
       span
 </template>
 
@@ -166,7 +166,7 @@ section {
   background-size: cover;
   position: relative;
   .top-text {
-    font-size: 1rem;
+    font-size: 1.25rem;
     color: #000;
     position: absolute;
     top: 60%;
@@ -230,7 +230,7 @@ section {
 #top {
   height: 100vh;
 }
-#home {
+#about {
   height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
@@ -239,7 +239,7 @@ section {
     ),
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");
 }
-#about {
+#works {
   height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
@@ -248,7 +248,7 @@ section {
     ),
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711721/glass-909264_1920_kj77yx.jpg");
 }
-#portfolio {
+#media {
   height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
