@@ -1,12 +1,12 @@
 <template lang="pug">
 footer
-  p © 2021 ichii731
-  b
-    nuxt-link(to="/terms") 共通利用規約
-    |  /&nbsp;
-    a(href="https://stats.uptimerobot.com/WKWREf60Qp", target="_blank", rel="noopener noreferrer") サービス稼働状況
-    |  /&nbsp;
-    nuxt-link(to="/contact") Contact
+  p © 2022 ichii731
+  br
+  nuxt-link(to="/terms") 共通利用規約
+  |  /&nbsp;
+  a(href="https://stats.uptimerobot.com/WKWREf60Qp", target="_blank", rel="noopener noreferrer") サービス稼働状況
+  |  /&nbsp;
+  nuxt-link(to="/contact") Contact
 </template>
 
 <script>
