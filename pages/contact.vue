@@ -11,6 +11,7 @@
       iframe(src="https://docs.google.com/forms/d/e/1FAIpQLSfPzOZ1iXekcknbV3Q4aUPG0KMrZOAUU8WJ0AUA8II_dhR0qQ/viewform?embedded=true",
       width="100%", height="1650", frameborder="0",
       marginheight="0",marginwidth="0") 読み込んでいます…
+    p ※確実な問い合わせの担保と静的ホスティングの都合上Googleフォームを利用しております
 </template>
 
 <script>

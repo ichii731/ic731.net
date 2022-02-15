@@ -35,16 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~/assets/scss/md.scss';
 .news {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 90%;
   margin: 0 auto;
   max-width: 900px;
-}
-
-::v-deep .nuxt-content {
-  // md
-  a{color:#0645ad;text-decoration:none}a:visited{color:#0b0080}a:hover{color:#06e}a:active{color:#faa700}a:focus{outline:thin dotted}a:active,a:hover{outline:0}p{margin:1em 0}img{max-width:100%}h1,h2,h3,h4,h5,h6{font-weight:400;color:#111;line-height:1em}h4,h5,h6{font-weight:700}h1{font-size:2.5em}h2{font-size:2em}h3{font-size:1.5em}h4{font-size:1.2em}h5{font-size:1em}h6{font-size:.9em}blockquote{color:#666;margin:0;padding-left:3em;border-left:.5em #eee solid}hr{display:block;border:0;border-top:1px solid #aaa;border-bottom:1px solid #eee;margin:1em 0;padding:0}code,kbd,pre,samp{color:#000;font-family:monospace,monospace;font-size:.98em}pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}b,strong{font-weight:700}ol,ul{margin:1em 0;padding:0 0 0 2em}li p:last-child{margin:0}dd{margin:0 0 0 2em}img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle}table{border-collapse:collapse;border-spacing:0}td{vertical-align:top}
 }
 </style>

@@ -20,7 +20,7 @@
     .r-content
       FadeInAnimation
         h2 WORKS
-      p 作品紹介
+      p 活動遍歴
       nuxt-link.top-btn(to="/works") MORE
   section#media
     .l-content
@@ -234,7 +234,7 @@ section {
   height: 70vh;
   background-image: -webkit-linear-gradient(
       30deg,
-      #013a6b 50%,
+      #a50052 50%,
       rgba(255, 255, 255, 0) 50%
     ),
     url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");

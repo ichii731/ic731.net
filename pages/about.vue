@@ -1,26 +1,21 @@
 <template lang="pug">
 .page
-  TopHead(color="#4cbfff")
-    h1 WORKS
-  .works
+  TopHead(color="#a50052")
+    h1 ABOUT
+  .about
     NuxtContent(:document="post")
 </template>
 
 <script>
 import TopHead from "~/components/TopHead.vue";
 export default {
-  name: "works",
+  name: "contact",
   components: {
     TopHead,
   },
   async asyncData({ $content }) {
     return {
-      post: await $content("page/works").fetch(),
-    };
-  },
-  head() {
-    return {
-      meta: [{ name: "robots", content: "noindex" }],
+      post: await $content("page/about").fetch(),
     };
   },
 };
@@ -28,7 +23,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/md.scss";
-.works {
+
+.about {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 90%;
