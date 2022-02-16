@@ -11,9 +11,6 @@ body {
     sans-serif;
 }
 
-/*
- https://zenn.dev/tanoken729/articles/6505fe7808e10e
-*/
 .page-enter,
 .page-leave-to {
   opacity: 0;

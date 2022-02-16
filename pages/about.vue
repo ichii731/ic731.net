@@ -3,6 +3,8 @@
   TopHead(color="#a50052")
     h1 ABOUT
   .about
+    .profile
+
     NuxtContent(:document="post")
 </template>
 
