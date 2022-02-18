@@ -4,12 +4,15 @@
     TopAnimation
     .top-text
       h3 ”オタクコンテンツ”と”IT技術”のコラボレーションで生まれる無数の未来を創造します.
-  .newslist
-    h2 NEWS
-    ul
-      li(v-for="article in article", :key="article.slug")
-        nuxt-link(:to="'/news/' + article.slug")
-          p {{ article.title }}
+  #sub
+    .profile
+      Profile
+    .news
+      h2 NEWS
+      ul
+        li(v-for="article in article", :key="article.slug")
+          nuxt-link(:to="'/news/' + article.slug")
+            p.news_title {{ article.title }}
   section#about
     .l-content
       FadeInAnimation
@@ -42,11 +45,13 @@
 <script>
 import TopAnimation from "~/components/TopAnimation.vue";
 import FadeInAnimation from "~/components/FadeInAnimation.vue";
+import Profile from "~/components/Profile.vue";
 
 export default {
   components: {
     TopAnimation,
     FadeInAnimation,
+    Profile,
   },
   async asyncData({ $content }) {
     const article = await $content("articles")
@@ -62,61 +67,48 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/scss/media_query.scss";
-.newslist {
-  max-width: 500px;
-  margin: auto;
+
+#sub {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 200px;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 0 auto;
+  max-width: 1200px;
   margin-top: 20px;
-  h2 {
+  .profile {
     text-align: center;
+    @include mq(md) {
+      grid-area: 1 / 1 / 3 / 2;
+    }
+    @include mq(mdd) {
+      grid-area: 1 / 1 / 2 / 3;
+    }
   }
-}
-
-@include mq(ssm) {
-  .newslist {
-    font-size: 14px;
-    padding: 0 10px;
+  .news {
+    @include mq(md) {
+      grid-area: 1 / 2 / 3 / 3;
+      padding-top: 40px;
+    }
+    @include mq(mdd) {
+      grid-area: 2 / 1 / 3 / 3;
+      padding-left: 40px;
+    }
+    @include mq(ssm) {
+      font-size: 14px;
+    }
+    li {
+      padding: 15px 0 0;
+      line-height: 1.5;
+      list-style: none;
+      margin-left: -40px;
+      a {
+        color: rgb(47, 120, 255);
+        text-decoration: none;
+      }
+    }
   }
-}
-
-.newslist li {
-  padding: 15px 15px;
-  line-height: 1.5;
-  list-style: none;
-  margin-left: -40px;
-}
-
-.newslist li a {
-  color: rgb(47, 120, 255);
-  text-decoration: none;
-}
-
-.top-btn {
-  font-size: 1.5em;
-  font-weight: 700;
-  line-height: 1.5;
-  position: relative;
-  display: inline-block;
-  padding: 1rem 2rem;
-  -webkit-transition: all 0.3s;
-  transition: all 0.3s;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  letter-spacing: 0.1em;
-  color: #212529;
-  border-radius: 0.5rem;
-  border: 2px solid #000;
-  border-radius: 0;
-  background: #fff;
-  -webkit-box-shadow: 4px 4px 0 #000;
-  box-shadow: 4px 4px 0 #000;
-}
-
-.top-btn:hover {
-  -webkit-box-shadow: 4px 4px 0 #868686;
-  box-shadow: 4px 4px 0 #868686;
-  color: #fff;
-  background: #000;
 }
 
 /**
@@ -165,12 +157,41 @@ section {
   background-position: center center;
   background-size: cover;
   position: relative;
+  .top-btn {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 2rem;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    -webkit-box-shadow: 4px 4px 0 #000;
+    box-shadow: 4px 4px 0 #000;
+  }
+  .top-btn:hover {
+    -webkit-box-shadow: 4px 4px 0 #868686;
+    box-shadow: 4px 4px 0 #868686;
+    color: #fff;
+    background: #000;
+  }
   .top-text {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     color: #000;
     position: absolute;
     top: 60%;
     left: 50%;
+    width: 100%;
+    padding: 0 10px 0 10px;
     transform: translate(-50%, -50%);
     text-align: center;
     max-width: 500px;
@@ -212,6 +233,7 @@ section {
 }
 
 #top {
+  height: 100vh;
   &:before {
     /* 透過させた黒を重ねる */
     background-color: rgba(201, 201, 201, 0.8);
@@ -225,10 +247,6 @@ section {
     content: " ";
   }
   background-image: url("https://0115765.com/wp-content/uploads/2021/09/%E7%94%BB%E5%83%8F_2021-09-19_203031.png");
-}
-
-#top {
-  height: 100vh;
 }
 #about {
   height: 70vh;
