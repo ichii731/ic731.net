@@ -1,14 +1,23 @@
-## https://ic731.net
-### アナウンス
-1.11 近々、Nuxt.jsベースの新システムに移行するつもりです
-### Change Log
-**8.27 サイトリニューアルしました！**
+# ic731.net
 
-**7.10 独自ドメインに移行しました**
+- Vue
+- Nuxt.js (using SSG Mode)
+- Pug
+- Sass(scss)
 
-### 仕様
-Lang: HTML/JS/CSS
+## Setup
 
-CSS Framework: Tailwind CSS
+```bash
+# install dependencies
+$ npm install
 
-Hosted on GitHub Pages
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# build for production and launch server
+$ npm run build
+$ npm run start
+
+# generate static project
+$ npm run generate
+```

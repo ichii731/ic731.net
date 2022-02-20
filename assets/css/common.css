@@ -1,0 +1,30 @@
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "Helvetica Neue",
+    Arial,
+    "Hiragino Kaku Gothic ProN",
+    "Hiragino Sans",
+    "BIZ UDPGothic",
+    sans-serif;
+}
+
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s;
+}
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.4s;
+}
