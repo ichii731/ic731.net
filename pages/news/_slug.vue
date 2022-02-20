@@ -34,6 +34,7 @@ export default {
   head() {
     return {
       title: this.article.title + " | @ichii731 Portfolio",
+      description: this.article.description,
     };
   },
 };
