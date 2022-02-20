@@ -21,6 +21,11 @@ export default {
   components: {
     TopHead,
   },
+    head() {
+    return {
+      title: "CONTACT | @ichii731 Portfolio",
+    };
+  },
 };
 </script>
 

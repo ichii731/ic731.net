@@ -3,20 +3,20 @@
   TopHead(color="#000")
     h1 NEWS
   .news
-    h2 {{ article.title }}
+    h2.title {{ article.title }}
     p 更新日: {{ formatDate(article.createdAt) }}
-    hr
     article
       nuxt-content(:document="article")
     .return
+      hr
       nuxt-link(to="/news")
-        p Return to the News Top
+        p 一覧に戻る>>
 </template>
 
 <script>
-import TopHead from '~/components/TopHead.vue';
+import TopHead from "~/components/TopHead.vue";
 export default {
-  name: 'News',
+  name: "News",
   components: {
     TopHead,
   },
@@ -31,16 +31,27 @@ export default {
     const article = await $content("articles", params.slug).fetch();
     return { article };
   },
+  head() {
+    return {
+      title: this.article.title + " | @ichii731 Portfolio",
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/md.scss';
+@import "~/assets/scss/md.scss";
 .news {
   padding-top: 2rem;
   padding-bottom: 2rem;
   width: 90%;
   margin: 0 auto;
   max-width: 900px;
+}
+.return {
+  padding-top: 2rem;
+}
+.title {
+  font-weight: bold;
 }
 </style>

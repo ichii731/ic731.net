@@ -2,7 +2,7 @@
 figure.profile
   .profile-image
     img(
-      src="~/assets/img/icon.webp",
+      src="/img/icon.webp",
       alt="icon"
     )
   figcaption
@@ -14,7 +14,7 @@ figure.profile
     p
       | "オタク×IT"をテーマに何でもやります!
     .icons
-      a(v-for="link in links" :href="link.url")
+      a(v-for="link in links" target="_blank" rel="noopener noreferrer" :href="link.url")
         img(
           :src="link.src",
           :alt="link.name",

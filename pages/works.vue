@@ -21,6 +21,7 @@ export default {
   head() {
     return {
       meta: [{ name: "robots", content: "noindex" }],
+      title: "WORKS | @ichii731 Portfolio",
     };
   },
 };

@@ -76,6 +76,11 @@ export default {
   components: {
     TopHead,
   },
+  head() {
+    return {
+      title: "共通利用規約 | ic731.net",
+    };
+  },
 };
 </script>
 

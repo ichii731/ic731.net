@@ -2,9 +2,14 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ichii731',
+    title: '市井(@ichii731) Portfolio',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -13,7 +18,18 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-    ],
+      { property: 'og:type', content: 'website'},
+      {property: 'og:url', content: 'https://ic731.net'},
+      {property: 'og:title', content: '市井(@ichii731) Portfolio'},
+      {property: 'og:description', content: '自称何でもオタク「市井(@ichii731)」のポートフォリオです.「オタク×IT」をテーマにしたコンテンツを提供しています!'},
+      {property: 'og:image', content: 'https://ic731.net/ogp.jpg'},
+      {property: 'twitter:card', content: 'summary'},
+      {property: 'twitter:url', content: 'https://ic731.net'},
+      {property: 'twitter:site', content: '@ichii731'},
+      {property: 'twitter:title', content: '市井(@ichii731) Portfolio'},
+      {property: 'twitter:description', content: '自称何でもオタク「市井(@ichii731)」のポートフォリオです.「オタク×IT」をテーマにしたコンテンツを提供しています!'},
+      {property: 'twitter:image', content: 'https://ic731.net/ogp.jpg'},
+        ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]

@@ -234,19 +234,7 @@ section {
 
 #top {
   height: 100vh;
-  &:before {
-    /* 透過させた黒を重ねる */
-    background-color: rgba(201, 201, 201, 0.8);
-    /* どの範囲に重ねるかを指定 */
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 100vh;
-    content: " ";
-  }
-  background-image: url("https://0115765.com/wp-content/uploads/2021/09/%E7%94%BB%E5%83%8F_2021-09-19_203031.png");
+  background-image: url("/img/top.webp");
 }
 #about {
   height: 70vh;
@@ -255,7 +243,7 @@ section {
       #a50052 50%,
       rgba(255, 255, 255, 0) 50%
     ),
-    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711699/building-925757_1920_e7zlcl.jpg");
+    url("/img/about.webp");
 }
 #works {
   height: 70vh;
@@ -264,7 +252,7 @@ section {
       rgba(255, 255, 255, 0) 50%,
       #4cbfff 50%
     ),
-    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711721/glass-909264_1920_kj77yx.jpg");
+    url("/img/works.webp");
 }
 #media {
   height: 70vh;
@@ -273,7 +261,9 @@ section {
       #006421 50%,
       rgba(255, 255, 255, 0) 50%
     ),
-    url("https://res.cloudinary.com/kokkieh/image/upload/v1441711717/building-922529_1920_icicwy.jpg");
+    url("/img/media.webp");
+  // 高さに合わせる
+  background-size: auto;
 }
 #contact {
   height: 70vh;
@@ -289,7 +279,7 @@ section {
     height: 70vh;
     content: " ";
   }
-  background-image: url("https://res.cloudinary.com/kokkieh/image/upload/v1441711695/window-855371_1920_mkw8de.jpg");
+  background-image: url("/img/contact.webp");
 }
 
 #top-anime {
