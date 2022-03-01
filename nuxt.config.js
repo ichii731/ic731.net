@@ -69,10 +69,10 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/google-adsense', {
+    ['@nuxtjs/google-adsense', {
       id: 'ca-pub-2158884523672825',
       pageLevelAds: false,
-    }
+    }]
   ],
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
