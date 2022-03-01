@@ -8,6 +8,7 @@
     article
       nuxt-content(:document="article")
     .return
+      MultiplexAd
       hr
       nuxt-link(to="/news")
         p 一覧に戻る>>
@@ -15,10 +16,12 @@
 
 <script>
 import TopHead from "~/components/TopHead.vue";
+import MultiplexAd from "~/components/MultiplexAd.vue";
 export default {
   name: "News",
   components: {
     TopHead,
+    MultiplexAd,
   },
   methods: {
     formatDate(date) {
