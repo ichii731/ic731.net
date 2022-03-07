@@ -4,7 +4,6 @@
     h1 NEWS
   .news
     h2.title {{ article.title }}
-    p 更新日: {{ formatDate(article.createdAt) }}
     article
       nuxt-content(:document="article")
     .return
