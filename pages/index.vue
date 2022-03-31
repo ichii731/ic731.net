@@ -13,6 +13,9 @@
         li(v-for="article in article", :key="article.slug")
           nuxt-link(:to="'/news/' + article.slug")
             p.news_title {{ article.title }}
+        li
+          nuxt-link(to="/news")
+            p.news_title リリース一覧>>
   section#about
     .l-content
       FadeInAnimation
@@ -55,7 +58,7 @@ export default {
   },
   async asyncData({ $content }) {
     const article = await $content("articles")
-      .limit(2)
+      .limit(5)
       .sortBy("createdAt", "desc")
       .fetch();
     return {
@@ -104,7 +107,6 @@ export default {
       list-style: none;
       margin-left: -40px;
       a {
-        color: rgb(47, 120, 255);
         text-decoration: none;
       }
     }

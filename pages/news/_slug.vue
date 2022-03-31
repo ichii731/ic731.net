@@ -35,7 +35,7 @@ export default {
   },
   head() {
     return {
-      title: this.article.title + " | @ichii731 Portfolio",
+      title: this.article.title + " | オタク総合研究所",
       description: this.article.description,
     };
   },

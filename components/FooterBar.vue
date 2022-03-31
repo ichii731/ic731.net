@@ -1,6 +1,6 @@
 <template lang="pug">
 footer
-  p © 2022 ichii731
+  p ©2022 オタク総合研究所 by ichii731
   br
   nuxt-link(to="/terms") 共通利用規約
   |  /&nbsp;

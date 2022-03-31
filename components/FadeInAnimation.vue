@@ -35,7 +35,7 @@ export default {
 <style lang="scss">
 /* ヘッダーロゴ フェード処理ここから */
 .fadeIn {
-  animation: fadeIn 1s;
+  animation: fadeIn 1.5s;
 }
 @keyframes fadeIn {
   0% {
